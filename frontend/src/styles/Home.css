@@ -1,0 +1,25 @@
+.home-container {
+    margin: 2.5rem 1rem;
+    text-align: center;
+  }
+  
+  .home-title {
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .home-title span {
+    color: #FFE20E;
+  }
+  
+  @media (min-width: 640px) {
+    .home-container {
+      margin: 4rem 1rem;
+    }
+  
+    .home-title {
+      font-size: 1.875rem;
+    }
+  }
+  
