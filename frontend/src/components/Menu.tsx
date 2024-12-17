@@ -1,10 +1,10 @@
-import  { useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import '../styles/Menu.css';
 interface MenuItem {
   id: number;
   name: string;
   description: string;
-  price: number;
+  price: number | string;
   image_url: string;
 }
 
@@ -16,7 +16,7 @@ const Menu: React.FC = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await fetch('/api/menu');
+        const response = await fetch('http://localhost:3000/api/menu');
         if (!response.ok) {
           throw new Error('Network response was not ok!!');
         }
@@ -33,28 +33,41 @@ const Menu: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="error">{error}</p>;
   }
 
   return (
-    <div>
-      <h1>Menu</h1>
-      <ul>
+    <div className="menu-container">
+      <header className="header">
+        <h1 className="restaurant-title">Pasta Bella</h1>
+      </header>
+
+      <h2 className="menu-title">Our Menu</h2>
+      <p className="menu-description">
+        Authentic Italian cuisine. Creative dishes to choose from. All from our stone oven, all organic, all delicious.
+      </p>
+      
+      <ul className="menu-list">
         {menuItems.map((item) => (
-          <li key={item.id}>
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <p>Price: ${item.price.toFixed(2)}</p>
-            <img src={item.image_url} alt={item.name} style={{ width: '200px', height: 'auto' }} />
+          <li key={item.id} className="menu-item">
+            <h3 className="menu-item-name">{item.name}</h3>
+            <p className="menu-item-description">{item.description}</p>
+            <p className="menu-item-price">Price: ${Number(item.price).toFixed(2)}</p>
+            <img
+              src={`http://localhost:3000${item.image_url}`}
+              alt={item.name}
+              className="menu-item-image"
+            />
+            <button className="btn">Add to Cart</button>
           </li>
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default Menu;
