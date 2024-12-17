@@ -6,7 +6,7 @@ import Menu from '../components/Menu';
 const App: React.FC = () => {
   return (
     <Routes>
-   {/*    <Header /> */}
+
     
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
