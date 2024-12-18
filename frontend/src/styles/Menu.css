@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+
+@font-face {
+  font-family: 'Partsold';
+  src: url('../fonts/Partsold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  font-family: "Roboto Mono", sans-serif, "Partsold";
+  color: #000;
+  font-weight: 400;
+  background-color: #F9EBD0;
+  border-bottom: 1.6rem solid #edc84b;
+  min-height: 100vh;
+  padding: 3.2rem;
+  padding-bottom: 6rem;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+/* *************** */
+/* Header */
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.restaurant-title {
+  color: #b22222;
+  font-family: 'Partsold', sans-serif;
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: 0;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.restaurant-title::after {
+  content: "";
+  display: block;
+  width: 8rem;
+  height: 3px;
+  background-color: #edc84b;
+  margin: 1rem auto 0;
+}
+
+/* *************** */
+/* Menu */
+
+.menu-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.menu-title {
+  color: #b22222;
+  font-family: 'Partsold', sans-serif;
+  font-size: 3.6rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+}
+
+.menu-description {
+  font-size: 1.6rem;
+  color: #555;
+  text-align: center;
+  line-height: 1.8;
+  max-width: 70ch;
+  margin-bottom: 2rem;
+}
+
+/* Menu List */
+
+.menu-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0;
+}
+
+.menu-item {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.menu-item-name {
+  font-size: 2rem;
+  color: #b22222;
+  margin-bottom: 0.5rem;
+}
+
+.menu-item-description {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.menu-item-price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.menu-item-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Add to Cart Button */
+
+.btn {
+  display: inline-block;
+  background-color: #b22222;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #8b1e1e;
+}
+
+/* *************** */
+/* Loading and Error Messages */
+
+.loading,
+.error {
+  font-size: 1.8rem;
+  color: #b22222;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* *************** */
+/* Footer */
+
+.footer {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+/* *************** */
+/* Spacing and Font Size System (for reference) */
+
+/* SPACING SYSTEM (px) */
+/* 2 / 4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 128 */
+
+/* FONT SIZE SYSTEM (px) */
+/* 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */
