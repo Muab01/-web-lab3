@@ -1,0 +1,11 @@
+[
+    { "id": 1, "name": "Spaghetti Bolognese", "price": 12.00 },
+    { "id": 2, "name": "Lasagna", "price": 15.00 },
+    { "id": 3, "name": "Pasta Carbonara", "price": 13.00 },
+    { "id": 4, "name": "Fettuccine Alfredo", "price": 14.00 },
+    { "id": 5, "name": "Penne Arrabbiata", "price": 11.00 },
+    { "id": 6, "name": "Ravioli", "price": 16.00 },
+    { "id": 7, "name": "Tortellini", "price": 15.50 },
+    { "id": 8, "name": "Gnocchi", "price": 13.50 }
+  ]
+  
