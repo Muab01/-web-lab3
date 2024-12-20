@@ -3,7 +3,12 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ cartId }) => {
-  return <p>Cart ID: {cartId}</p>;
+  return (
+    <div>
+      <p>Cart ID: {cartId}</p>
+      <p>Cart is empty</p>
+    </div>
+  );
 };
 
 export default Cart;
