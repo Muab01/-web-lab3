@@ -3,6 +3,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import menuRoutes from './routes/menuRoutes';
 import path from 'path';
+import cartRoutes from './routes/cartRoutes'
+import orderRoutes from './routes/orderRoutes'
+
 
 
 dotenv.config();
@@ -16,6 +19,9 @@ app.use(express.json());
 app.use('/api/menu', menuRoutes);
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/api/cart', cartRoutes);
+app.use('/api/order', orderRoutes);
+
 
 
 
