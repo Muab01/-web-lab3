@@ -1,50 +1,91 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface CartProps {
   cartId: number;
 }
 
-interface Item {
+interface CartItem {
   id: number;
   name: string;
   price: number;
+  quantity: number;
 }
 
+
+
 const Cart: React.FC<CartProps> = ({ cartId }) => {
-  const [menuItems, setMenuItems] = useState<Item[]>([]);
-  const [cartItem, setCartItem] = useState<Item | null>(null);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+  const navigate = useNavigate();
 
-  // Hämta menydata när komponenten monteras
+  
   useEffect(() => {
-    fetch('/api/menu')
-      .then((response) => response.json())
-      .then((data) => setMenuItems(data))
-      .catch((error) => console.error('Error fetching menu:', error));
-  }, []);
+    const fetchCartItems = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/cart/${cartId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch cart items.');
+        }
+        const data = await response.json();
+        setCartItems(data);
 
-  // Funktion för att lägga till en vara i kundvagnen
-  const handleAddToCart = (item: Item) => {
-    setCartItem(item);
+       
+        const total = data.reduce((sum: number, item: CartItem) => sum + item.price * item.quantity, 0);
+        setTotalPrice(total);
+      } catch (error) {
+        console.error('Error fetching cart items:', error);
+      }
+    };
+
+    fetchCartItems();
+  }, [cartId]);
+
+  
+  const handleClearCart = async () => {
+    try {
+      await fetch(`http://localhost:3000/api/cart/${cartId}`, {
+        method: 'DELETE',
+      });
+      setCartItems([]);
+      setTotalPrice(0);
+      alert('Cart has been cleared!');
+    } catch (error) {
+      console.error('Error clearing cart:', error);
+    }
+  };
+
+  
+  const handleOrderPasta = () => {
+    navigate('/order', { state: { cartItems, totalPrice } });
   };
 
   return (
-    <div>
-      <h2>Kundvagn #{cartId}</h2>
-      <h3>Meny</h3>
-      {menuItems.slice(0, 1).map((item) => (
-        <button
-          key={item.id}
-          data-cy="add-to-cart"
-          onClick={() => handleAddToCart(item)}
-        >
-          Lägg till {item.name} ({item.price.toFixed(2)} kr)
-        </button>
-      ))}
-
-      {cartItem ? (
-        <p data-cy="cart-item">{cartItem.name} har lagts till i kundvagnen</p>
+    <div className="cart-page">
+      <h2>Your Cart</h2>
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty.</p>
       ) : (
-        <p data-cy="cart-empty">Kundvagnen är tom</p>
+        <div>
+          <ul className="cart-items">
+            {cartItems.map((item) => (
+              <li key={item.id} className="cart-item">
+                <p className="cart-item-name">{item.name}</p>
+                <p className="cart-item-quantity">Quantity: {item.quantity}</p>
+                <p className="cart-item-price">
+                  Price: ${item.price.toFixed(2)} x {item.quantity} = ${(item.price * item.quantity).toFixed(2)}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="cart-total">Total: ${totalPrice.toFixed(2)}</p>
+          <button className="btn order-btn" onClick={handleOrderPasta}>
+            Order Pasta
+          </button>
+          <button className="btn clear-btn" onClick={handleClearCart}>
+            Clear Cart
+          </button>
+        </div>
       )}
     </div>
   );
