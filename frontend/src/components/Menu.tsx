@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Menu.css';
+import Header from './Header'; 
 
 interface MenuItem {
   id: number;
@@ -38,14 +39,13 @@ const Menu: React.FC = () => {
         setLoading(false);
       }
     };
-  
+
     fetchMenuItems();
   }, []);
 
   const addToCart = async (menuItem: MenuItem) => {
     const existingItem = cartItems.find((item) => item.id === menuItem.id);
 
-    
     if (existingItem) {
       setCartItems((prevCart) =>
         prevCart.map((item) =>
@@ -61,7 +61,6 @@ const Menu: React.FC = () => {
       ]);
     }
 
-   
     try {
       await fetch('http://localhost:3000/api/cart/add', {
         method: 'POST',
@@ -69,7 +68,7 @@ const Menu: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          cartId: 1, 
+          cartId: 1,
           menuId: menuItem.id,
           quantity: 1,
         }),
@@ -92,11 +91,8 @@ const Menu: React.FC = () => {
 
   return (
     <div className="menu-page">
+      <Header /> 
       <div className="menu-container">
-        <header className="header">
-          <h1 className="restaurant-title">Pasta Bella</h1>
-        </header>
-
         <h2 className="menu-title">Our Menu</h2>
         <p className="menu-description">
           Authentic Italian cuisine. Choose from our delicious options.
@@ -105,20 +101,19 @@ const Menu: React.FC = () => {
         <ul className="menu-list">
           {menuItems.map((item) => (
             <li key={item.id} className="menu-item">
-              <h3 className="menu-item-name">{item.name}</h3>
-              <p className="menu-item-description">{item.description}</p>
-              <p className="menu-item-price">Price: ${item.price.toFixed(2)}</p>
               <img
                 src={`http://localhost:3000${item.image_url}`}
                 alt={item.name}
                 className="menu-item-image"
               />
-              <button
-                className="btn"
-                onClick={() => addToCart(item)}
-              >
-                Add to Cart
-              </button>
+              <div className="menu-item-content">
+                <h3 className="menu-item-name">{item.name}</h3>
+                <p className="menu-item-description">{item.description}</p>
+                <p className="menu-item-price">Price: ${item.price.toFixed(2)}</p>
+                <button className="btn" onClick={() => addToCart(item)}>
+                  Add to Cart
+                </button>
+              </div>
             </li>
           ))}
         </ul>
@@ -138,10 +133,7 @@ const Menu: React.FC = () => {
             </ul>
           )}
           <p>Total: ${calculateTotalPrice().toFixed(2)}</p>
-          <button
-            onClick={() => window.location.href = '/cart'}
-            className="btn"
-          >
+          <button onClick={() => (window.location.href = '/cart')} className="btn">
             Open Cart
           </button>
         </div>
