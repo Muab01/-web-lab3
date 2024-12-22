@@ -62,6 +62,7 @@ const Order: React.FC = () => {
           Full Name:
           <input
             type="text"
+            name="customerName"
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
             required
@@ -71,6 +72,7 @@ const Order: React.FC = () => {
           Phone Number:
           <input
             type="text"
+             name="customerContact"
             value={customerContact}
             onChange={(e) => setCustomerContact(e.target.value)}
             required
@@ -79,6 +81,7 @@ const Order: React.FC = () => {
         <label>
           Pickup or Dine-In:
           <select
+            name="pickupOrDineIn"
             value={pickupOrDineIn}
             onChange={(e) => setPickupOrDineIn(e.target.value as 'Pickup' | 'Dine-In')}
           >

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
 const Home: React.FC = () => {
@@ -6,13 +7,16 @@ const Home: React.FC = () => {
       <nav className="navbar">
         <div className="title-logo">Pasta Bella</div>
         <ul className="nav-links">
-          <li>Menu</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/menu">Menu</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link> 
+          </li>
         </ul>
       </nav>
       <video className="background-video" autoPlay muted loop>
         <source src="/videos/landingpage.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
       <div className="landing-text">
         <em>The finest pasta.</em><br />

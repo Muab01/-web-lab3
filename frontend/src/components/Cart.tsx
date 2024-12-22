@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Cart.css';
+import Header from './Header'; 
 
 interface CartProps {
   cartId: number;
@@ -12,14 +14,12 @@ interface CartItem {
   quantity: number;
 }
 
-
-
 const Cart: React.FC<CartProps> = ({ cartId }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const navigate = useNavigate();
 
-  
+ 
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
@@ -30,7 +30,7 @@ const Cart: React.FC<CartProps> = ({ cartId }) => {
         const data = await response.json();
         setCartItems(data);
 
-       
+        
         const total = data.reduce((sum: number, item: CartItem) => sum + item.price * item.quantity, 0);
         setTotalPrice(total);
       } catch (error) {
@@ -62,6 +62,8 @@ const Cart: React.FC<CartProps> = ({ cartId }) => {
 
   return (
     <div className="cart-page">
+      <Header /> 
+
       <h2>Your Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
@@ -73,7 +75,8 @@ const Cart: React.FC<CartProps> = ({ cartId }) => {
                 <p className="cart-item-name">{item.name}</p>
                 <p className="cart-item-quantity">Quantity: {item.quantity}</p>
                 <p className="cart-item-price">
-                  Price: ${item.price.toFixed(2)} x {item.quantity} = ${(item.price * item.quantity).toFixed(2)}
+                  Price: ${item.price.toFixed(2)} x {item.quantity} = $
+                  {(item.price * item.quantity).toFixed(2)}
                 </p>
               </li>
             ))}
