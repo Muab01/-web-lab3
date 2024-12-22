@@ -1,0 +1,59 @@
+.order-page {
+    padding: 24px; 
+    max-width: 600px;
+    margin: 0 auto; 
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+.order-page h2 {
+    margin-bottom: 16px;
+    font-size: 1.5rem; 
+    font-weight: 600; 
+  }
+
+.order-page p {
+    margin-bottom: 16px; 
+    font-size: 1rem; 
+    
+  }
+  
+.order-page label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  
+.order-page input[type="text"],
+ .order-page select {
+    padding: 8px 12px;
+    font-size: 1rem; 
+    border: 1px solid #d1d5db; 
+    border-radius: 6px; 
+    width: 100%;
+    margin-top: 8px; 
+  }
+  
+.order-page input[type="text"]:focus,
+.order-page select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.5); 
+  }
+  
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1rem; /
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ }
+  
+ 
+  

@@ -1,64 +1,29 @@
 
-@font-face {
-  font-family: 'Partsold';
-  src: url('../fonts/Partsold.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 .menu-page {
-    font-family: "Roboto Mono", sans-serif, "Partsold";
-    color: #000;
-    font-weight: 400;
-    background-color: #F9EBD0;
-    border-bottom: 1.6rem solid #edc84b;
-    min-height: 100vh;
-    padding: 3.2rem;
-    padding-bottom: 6rem;
-  }
-  
-  
-  .menu-page .container {
-    max-width: 80rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4.8rem;
-  }
-
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
+  font-family: "Roboto Mono", sans-serif;
+  color: #000;
+  font-weight: 400;
+  background-color: #F9EBD0; 
+  border-bottom: 1.6rem solid #b22222;
+  min-height: 100vh;
+  padding: 3.2rem;
+  padding-bottom: 6rem;
 }
 
-.restaurant-title {
-  color: #b22222;
-  font-family: 'Partsold', sans-serif;
-  font-size: 5rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  margin: 0;
-  position: relative;
-  padding-bottom: 1rem;
+.menu-page .container {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.8rem;
 }
-
-.restaurant-title::after {
-  content: "";
-  display: block;
-  width: 8rem;
-  height: 3px;
-  background-color: #edc84b;
-  margin: 1rem auto 0;
-}
-
 
 
 .menu-container {
@@ -67,109 +32,131 @@
 }
 
 .menu-title {
-  color: #b22222;
-  font-family: 'Partsold', sans-serif;
-  font-size: 3.6rem;
+  color: #000;
+  font-family: 'Roboto Mono';
+  font-size: 2.6rem;
   text-transform: uppercase;
   letter-spacing: 4px;
   margin-bottom: 1rem;
 }
 
 .menu-description {
-  font-size: 1.6rem;
-  color: #555;
-  text-align: center;
-  line-height: 1.8;
-  max-width: 70ch;
-  margin-bottom: 2rem;
+  font-size: 1.4rem; 
+  color: #555; 
+  text-align: center; 
+  line-height: 1.8; 
+  max-width: 70ch; 
+  margin: 0 auto 2rem; 
+  font-style: italic;
 }
-
 
 
 .menu-list {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1.5rem; 
   padding: 0;
+  justify-content: center;
+  align-items: start;
 }
 
+
 .menu-item {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  display: flex; 
+  align-items: flex-start; 
+  gap: 1.5rem; 
+  text-align: left; 
+  margin-bottom: 2rem; 
+}
+
+
+.menu-item-image {
+  width: 10rem; 
+  height: 10rem;
+  object-fit: cover; 
+  border-radius: 5px; 
+}
+
+
+.menu-item-content {
+  display: flex;
+  flex-direction: column; 
+  gap: 0.5rem; 
 }
 
 .menu-item-name {
-  font-size: 2rem;
-  color: #b22222;
-  margin-bottom: 0.5rem;
+  font-size: 1.6rem; 
+  font-weight: 600; 
+  color: #b22222; 
+  margin: 0; 
 }
+
 
 .menu-item-description {
-  font-size: 1.4rem;
-  color: #555;
-  margin-bottom: 1rem;
+  font-size: 1.2rem; 
+  color: #555; 
+  font-style: italic; 
+  line-height: 1.4; 
+  margin: 0; 
 }
+
 
 .menu-item-price {
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-size: 1.4rem; 
+  font-weight: bold; 
+  color: #333; 
+  margin: 0; 
 }
-
-.menu-item-image {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-}
-
-
 
 .btn {
   display: inline-block;
-  background-color: #b22222;
-  color: #fff;
-  padding: 1rem 2rem;
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-transform: uppercase;
+  background-color: #0000; 
+  color: #fff; 
+  padding: 0.4rem 1rem; 
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  text-transform: uppercase; 
   border: none;
-  border-radius: 5px;
+  border-radius: 20px; 
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  max-width: 12rem; 
+  text-align: center; 
+  width: auto;
 }
 
 .btn:hover {
-  background-color: #8b1e1e;
+  transform: scale(1.05); 
 }
 
 
+.cart-summary {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #B22222; 
+  border-radius: 8px;
+  background-color: #F9EBD0; 
+}
 
-.loading,
-.error {
+.cart-summary h2 {
+  margin-bottom: 1rem;
   font-size: 1.8rem;
   color: #b22222;
-  text-align: center;
-  margin: 2rem 0;
 }
 
+.cart-summary ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-
-.footer {
+.cart-summary li {
   font-size: 1.4rem;
-  text-align: center;
-  margin-top: 4rem;
+  margin: 0.5rem 0;
 }
 
-.order {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.4rem;
+.cart-summary p {
+  font-weight: bold;
+  font-size: 1.4rem; 
 }
-
 

@@ -1,0 +1,53 @@
+.order-status-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh; 
+    padding: 24px;
+    font-family: Arial, sans-serif;
+}
+  
+.order-status-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+  
+.order-status-content h2 {
+    font-size: 1.5rem; 
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+  
+.order-status-content p {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: #4b5563; 
+}
+  
+  
+.order-summary h3 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-size: 1.25rem; 
+    font-weight: 600;
+}
+  
+.order-summary ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+}
+  
+.order-summary ul li {
+    margin-bottom: 8px;
+}
+  
+.order-summary p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #374151;
+}
+  

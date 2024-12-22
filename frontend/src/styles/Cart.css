@@ -1,0 +1,86 @@
+body {
+    font-family: 'Roboto Mono';
+    background-color: #F9EBD0;
+  }
+
+
+ .cart-page {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .header {
+    margin-bottom: 24px;
+  }
+  
+  .logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #4b5563; 
+    margin-bottom: 8px;
+    font-family: "Partsold";
+    color: #B22222;
+  }
+  
+  .cart-page h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937; 
+  }
+  
+  .cart-items {
+    margin-top: 12px;
+    border-bottom: 1px solid #d1d5db; 
+  }
+  
+  .cart-item {
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #d1d5db;
+  }
+  
+  .cart-item-name {
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+  
+  .cart-item-quantity,
+  .cart-item-price {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  
+  .cart-total {
+    margin-top: 24px;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  .btn {
+    display: inline-block; 
+    padding: 10px 20px; 
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 8px 0;
+    text-align: center; 
+    white-space: nowrap; 
+  }
+  
+  .order-btn {
+    background-color: #000; 
+    color: #fff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 200px;
+  }
+  
+  .clear-btn {
+    background-color: #000; 
+    color: white;
+    margin-left: 8px;
+  }
+  

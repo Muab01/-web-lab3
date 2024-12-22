@@ -56,6 +56,13 @@
   font-size: 1.5rem;
 }
 
+.nav-links a {
+  text-decoration: none; 
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
 .landing-text {
   position: absolute;
   top: 50%;
